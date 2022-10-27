@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import NewsList from "./components/NewsList";
+import { Layout} from "antd";
+import {
+  Route,
+  BrowserRouter as Router,
+} from "react-router-dom";
+import NewsPage from "./components/NewsPage";
+
+
+const { Content } = Layout;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Layout style={{minHeight:"100vh"}}>
+        <Layout>
+          <Content>
+            <Route exact path="/">
+              <NewsList />
+            </Route>
+            <Route path="/:newsId">
+              <NewsPage />
+            </Route>
+          </Content>
+        </Layout>
+      </Layout>
+    </Router>
   );
 }
 
