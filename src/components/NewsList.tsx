@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { getNews } from "../api";
 import { selectNews, setNews } from "../redux/newsSlice";
 import { StarFilled, ClockCircleFilled } from "@ant-design/icons";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import HeaderNewsList from "./HeaderNewsList";
 
 const NewsList: React.FC = () => {
   const dispatch = useDispatch();
-  let history = useHistory();
+  let navigate = useNavigate();
   const news = useSelector(selectNews);
   let [loading, setIsLoading] = useState(false);
 
@@ -24,7 +24,7 @@ const NewsList: React.FC = () => {
   }, [news]);
 
   let goToNewsFull = (id: number) => {
-    history.push(`/${id}`);
+    navigate(`/${id}`);
   };
 
   return (

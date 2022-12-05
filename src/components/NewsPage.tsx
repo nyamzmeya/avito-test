@@ -13,7 +13,7 @@ const NewsPage: React.FC = () => {
   const dispatch = useDispatch();
   const currentNews = useSelector(selectCurrentNews);
   const refreshNewsPage = () => {
-    getNewsFull(parseInt(newsId)).then((newsFull) => {
+    getNewsFull(parseInt(newsId!)).then((newsFull) => {
       if (newsFull.kids) {
         getNewsComments(newsFull.kids).then((comments) => {
           newsFull.children = comments;
@@ -30,7 +30,7 @@ const NewsPage: React.FC = () => {
 
   return (
     <>
-      <HeaderNewsPage newsId={newsId}/>
+      <HeaderNewsPage newsId={newsId!}/>
       <Card
         title={currentNews?.title}
         extra={

@@ -1,6 +1,6 @@
 import { Button, PageHeader } from "antd";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { setCurrentNews } from "../redux/newsSlice";
 import { RedoOutlined } from "@ant-design/icons";
 import { useState } from "react";
@@ -13,9 +13,9 @@ type HeaderNewsPagePropsType = {
 const HeaderNewsPage = ({ newsId }: HeaderNewsPagePropsType) => {
   const dispatch = useDispatch();
 
-  let history = useHistory();
+  let navigate = useNavigate();
   let goToAllNews = () => {
-    history.push(`/`);
+    navigate(`/`);
     dispatch(setCurrentNews(null));
   };
 
