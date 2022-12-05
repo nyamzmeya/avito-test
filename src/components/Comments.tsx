@@ -12,7 +12,7 @@ const Comments = () => {
   const data = useSelector(selectComments);
   const [comments, setUpdateTreeData] = useState(data);
   useEffect(() => {
-    console.log(data);
+   
     setUpdateTreeData(data);
   }, [JSON.stringify(data)]);
 
